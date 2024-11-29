@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Mateusz Kacpura - CV</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Custom CSS -->
+    
+</head>
+<body>
+<style>
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+#wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar-wrapper {
+    min-width: 250px;
+    max-width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    padding: 20px;
+}
+
+.timeline {
+    position: relative;
+    margin-left: 20px;
+}
+
+.timeline:before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+}
+
+.timeline-item {
+    position: relative;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.timeline-item:before {
+    content: '';
+    position: absolute;
+    left: -31px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #28a745;
+    border-radius: 50%;
+}
+
+.progress {
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+</style>
+    <!-- Sidebar -->
+    <div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading text-center">
+                <img src="jack.png" alt="Profilowe" class="img-fluid rounded-circle mt-4" width="150">
+                <h2 class="mt-3">Mateusz Kacpura</h2>
+                <h4 class="text-muted">programista, analityk danych, politolog</h4>
+            </div>
+            <div class="list-group list-group-flush">
+                <div class="p-3">
+                    <h5>O mnie</h5>
+                    <p>Programista specjalizujący się w technologiach webowych, z doświadczeniem w tworzeniu stron internetowych, zarządzaniu bazami danych i uczenia sieci neuronowych. Stale rozwija swoje umiejętności w zakresie programowania i analitycznego rozwiązywania problemów.</p>
+                </div>
+                <div class="p-3">
+                    <h5>Dane Personalne</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Imię i Nazwisko:</strong> Mateusz Kacpura</li>
+                        <li><strong>Narodowość:</strong> Polska</li>
+                        <li><strong>Rok Urodzenia:</strong> 1997</li>
+                    </ul>
+                </div>
+                <div class="p-3">
+                    <h5>Obszar Specjalizacji</h5>
+                    <p>Programowanie • Sieci Neuronowe • Administracja Systemami Linux</p>
+                </div>
+                <div class="p-3">
+                    <h5>Zainteresowania</h5>
+                    <p>IT • Filmowanie • Fotografia</p>
+                </div>
+                <div class="p-3">
+                    <h5>Technologie</h5>
+                    <p>Python • PHP • JavaScript • Docker • Git • Linux • MongoDB • PostgreSQL • Flask • TensorFlow • Scikit-learn • Keras • PyTorch • Dask • Pandas • Spark • Laravel • Node.js • MATLAB • LaTeX</p>
+                </div>
+                <div class="p-3">
+                    <h5>Kontakt</h5>
+                    <p><i class="fas fa-phone"></i> +48 720 760 461</p>
+                    <p><i class="fab fa-facebook"></i> Mateusz Kacpura</p>
+                    <p><i class="fab fa-github"></i> <a href="https://github.com/mateusz-kacpura">github.com/mateusz-kacpura</a></p>
+                    <p><i class="fas fa-envelope"></i> mateusz.kacpura@protonmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Toruń, Polska</p>
+                </div>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <!-- Doświadczenie zawodowe -->
+                <section id="experience" class="mt-4">
+                    <h2>Doświadczenie zawodowe</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>2020 - 2023</h4>
+                            <h3>Technik telewizyjny  <span class="text-muted"></span></h3>
+                            <p>Tworzenie programów publicystycznych "Geopolityka" i "Zrozumieć antycywilizację". Uczestniczyłem przy produkcji ok. 50 odcinków jako operator i montażysta. Zajmowałem się również weryfikacją i zbieraniem informacji.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>2018 - 2023</h4>
+                            <h3>Fotograf  <span class="text-muted"></span></h3>
+                            <p>Fotografowałem liczne wydarzenia organizowane przez Akademię Kultury Społecznej i Medialnej, Radio Maryja oraz Telewizję Trwam. Wyspecjalizowałem się w fotografii reportażowej.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Umiejętności -->
+                <section id="skills" class="mt-5">
+                    <h2>Umiejętności</h2>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5>Bazy Danych</h5>
+                            <ul class="list-unstyled">
+                                <li>MongoDB <div class="progress"><div class="progress-bar bg-success" style="width: 70%"></div></div></li>
+                                <li>MySQL <div class="progress"><div class="progress-bar bg-success" style="width: 60%"></div></div></li>
+                                <li>PostgreSQL <div class="progress"><div class="progress-bar bg-success" style="width: 50%"></div></div></li>
+                                <li>Parquet <div class="progress"><div class="progress-bar bg-success" style="width: 10%"></div></div></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Programowanie</h5>
+                            <ul class="list-unstyled">
+                                <li>Python <div class="progress"><div class="progress-bar bg-info" style="width: 70%"></div></div></li>
+                                <li>R <div class="progress"><div class="progress-bar bg-info" style="width: 30%"></div></div></li>
+                                <li>C <div class="progress"><div class="progress-bar bg-info" style="width: 10%"></div></div></li>
+                                <li>PHP <div class="progress"><div class="progress-bar bg-info" style="width: 60%"></div></div></li>
+                                <li>JavaScript <div class="progress"><div class="progress-bar bg-info" style="width: 60%"></div></div></li>
+                                <li>MATLAB <div class="progress"><div class="progress-bar bg-info" style="width: 10%"></div></div></li>
+                                <li>LaTeX <div class="progress"><div class="progress-bar bg-info" style="width: 10%"></div></div></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Inne</h5>
+                            <ul class="list-unstyled">
+                                <li>Linux <div class="progress"><div class="progress-bar bg-warning" style="width: 90%"></div></div></li>
+                                <li>Git <div class="progress"><div class="progress-bar bg-warning" style="width: 90%"></div></div></li>
+                                <li>Docker <div class="progress"><div class="progress-bar bg-warning" style="width: 70%"></div></div></li>
+                                <li>Bash <div class="progress"><div class="progress-bar bg-warning" style="width: 60%"></div></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projekty -->
+                <section id="projects" class="mt-5">
+                    <h2>Projekty</h2>
+                    <div class="project-item">
+                        <h4>2024 - Głębokie uczenie (Python, TensorFlow / Keras / PyTorch)</h4>
+                        <p>Rekonstrukcja obrazów CelebA, Fashion, CIFAR-10 przy pomocy konwolucyjnych sieci neuronowych. Zamiana tekstu na mowę.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>2023 - Strona internetowa influencerów Pro Movie Group (Python, Flask, JSON)</h4>
+                        <p>Projekt strony internetowej stworzony od zera w celu uruchomienia kodu na darmowym hostingu ct8 przez SSH.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>2023 - Aplikacja do nauki języka angielskiego (Python, JavaScript, Flask, JSON)</h4>
+                        <p>System logowania użytkowników, publiczne i prywatne zestawy do nauki, wiele zadań.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>2023 - Skrobak internetowy (Python, Selenium)</h4>
+                        <p>Skrypt, który z wykorzystaniem Selenium zbiera dane ze stron internetowych wymagających zalogowania.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>2020 - 2021 - Aplikacja do nauki angielskiego (PHP, JavaScript)</h4>
+                        <p>Fiszki językowe do nauki angielskiego.</p>
+                    </div>
+                </section>
+
+                <!-- Edukacja i Osiągnięcia -->
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <section id="education">
+                            <h2>Edukacja</h2>
+                            <ul class="list-unstyled">
+                                <li><strong>2024 - 2025:</strong> Magisterka z Matematyki Stosowanej, specjalizacja Analiza Danych</li>
+                                <li><strong>2021 - 2023:</strong> Magisterka z Politologii</li>
+                                <li><strong>2018 - 2021:</strong> Licencjat z Informatyki Medialnej</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-md-6">
+                        <section id="achievements">
+                            <h2>Osiągnięcia</h2>
+                            <ul class="list-unstyled">
+                                <li><strong>2015:</strong> Prawo jazdy kat. B</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- Języki i Zainteresowania -->
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <section id="languages">
+                            <h2>Języki</h2>
+                            <ul class="list-unstyled">
+                                <li><strong>Polski:</strong> C2 - Ojczysty</li>
+                                <li><strong>Angielski:</strong> B2 - Zaawansowany</li>
+                                <li><strong>Hiszpański:</strong> B1 - Średniozaawansowany</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-md-6">
+                        <section id="interests">
+                            <h2>Zainteresowania</h2>
+                            <ul class="list-unstyled">
+                                <li><strong>Majsterkowanie:</strong> Montaż komputerów</li>
+                                <li><strong>Cyberbezpieczeństwo:</strong> Metasploit, Hashcat</li>
+                                <li><strong>Sport:</strong> Wspinaczka sportowa i górska</li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- Stopka -->
+                <footer class="mt-5 text-center">
+                    <p class="text-muted">Mateusz Kacpura • mateusz.kacpura@protonmail.com • Toruń • +48 720 760 461</p>
+                </footer>
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap JS, jQuery, and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
