@@ -69,7 +69,69 @@ body {
     margin-bottom: 10px;
 }
 
+        /* Ustawienia A5 */
+        @media print {
+            @page {
+                size: A5;
+                margin: 10mm;
+            }
+        }
+  
+          /* Stylizacja menu */
+        .navbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #343a40;
+            padding: 10px 20px;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+
+        .navbar-toggler {
+            display: none;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.2em;
+            border: none;
+            background: none;
+        }
+
+        .navbar-menu {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .navbar-menu a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+        }
+
+        .navbar-menu a:hover {
+            background-color: #495057;
+        }
+
 </style>
+<!-- Menu nawigacyjne -->
+<nav class="navbar">
+    <a href="#" class="navbar-brand">Mateusz Kacpura</a>
+    <button class="navbar-toggler" onclick="toggleMenu()">&#9776;</button>
+    <div class="navbar-menu">
+        <a href="#about">O Mnie</a>
+        <a href="#experience">Doświadczenie</a>
+        <a href="#skills">Umiejętności</a>
+        <a href="#projects">Projekty</a>
+        <a href="#education">Edukacja</a>
+        <a href="#contact">Kontakt</a>
+    </div>
+</nav>
+
     <!-- Sidebar -->
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
