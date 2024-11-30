@@ -3,15 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Mateusz Kacpura - CV</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <!-- Custom CSS -->
-    
 </head>
 <body>
-<style>
+    <script>
+const html = document.createElement('html');
+html.lang = 'pl';
+
+const head = document.createElement('head');
+
+const metaCharset = document.createElement('meta');
+metaCharset.setAttribute('charset', 'UTF-8');
+head.appendChild(metaCharset);
+
+const title = document.createElement('title');
+title.innerText = 'Mateusz Kacpura - CV';
+head.appendChild(title);
+
+const linkBootstrap = document.createElement('link');
+linkBootstrap.rel = 'stylesheet';
+linkBootstrap.href = 'https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css';
+head.appendChild(linkBootstrap);
+
+const linkFontAwesome = document.createElement('link');
+linkFontAwesome.rel = 'stylesheet';
+linkFontAwesome.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css';
+head.appendChild(linkFontAwesome);
+
+const style = document.createElement('style');
+style.innerHTML = `
 body {
     font-family: 'Raleway', sans-serif;
 }
@@ -69,259 +88,460 @@ body {
     margin-bottom: 10px;
 }
 
-        /* Ustawienia A5 */
-        @media print {
-            @page {
-                size: A5;
-                margin: 10mm;
-            }
+/* Ustawienia A5 */
+@media print {
+    @page {
+        size: A5;
+        margin: 10mm;
+    }
+}
+
+/* Stylizacja menu */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #343a40;
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.navbar-toggler {
+    display: none;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.2em;
+    border: none;
+    background: none;
+}
+
+.navbar-menu {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+}
+
+.navbar-menu a:hover {
+    background-color: #495057;
+}
+`;
+head.appendChild(style);
+
+// Dodajemy element <head> do dokumentu
+document.head.parentNode.replaceChild(head, document.head);
+
+// Tworzymy element <body>
+const body = document.createElement('body');
+
+// Funkcja do tworzenia elementów z klasami i atrybutami
+function createElement(tag, classNames, attributes) {
+    const element = document.createElement(tag);
+    if (classNames) {
+        classNames.split(' ').forEach(className => {
+            element.classList.add(className);
+        });
+    }
+    if (attributes) {
+        for (let key in attributes) {
+            element.setAttribute(key, attributes[key]);
         }
-  
-          /* Stylizacja menu */
-        .navbar {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #343a40;
-            padding: 10px 20px;
-        }
+    }
+    return element;
+}
 
-        .navbar-brand {
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.5em;
-        }
+/* Budujemy strukturę strony */
 
-        .navbar-toggler {
-            display: none;
-            cursor: pointer;
-            color: #fff;
-            font-size: 1.2em;
-            border: none;
-            background: none;
-        }
+// Navbar
+const nav = createElement('nav', 'navbar');
+const navbarBrand = createElement('a', 'navbar-brand', { href: '#' });
+navbarBrand.innerText = 'Mateusz Kacpura';
+nav.appendChild(navbarBrand);
 
-        .navbar-menu {
-            display: flex;
-            flex-direction: row;
-        }
+const navbarToggler = createElement('button', 'navbar-toggler', { onclick: 'toggleMenu()' });
+navbarToggler.innerHTML = '&#9776;';
+nav.appendChild(navbarToggler);
 
-        .navbar-menu a {
-            color: #fff;
-            text-decoration: none;
-            padding: 8px 16px;
-        }
+const navbarMenu = createElement('div', 'navbar-menu');
+const menuItems = [
+    { href: '#about', text: 'O Mnie' },
+    { href: '#experience', text: 'Doświadczenie' },
+    { href: '#skills', text: 'Umiejętności' },
+    { href: '#projects', text: 'Projekty' },
+    { href: '#education', text: 'Edukacja' },
+    { href: '#contact', text: 'Kontakt' }
+];
 
-        .navbar-menu a:hover {
-            background-color: #495057;
-        }
+menuItems.forEach(item => {
+    const link = createElement('a', null, { href: item.href });
+    link.innerText = item.text;
+    navbarMenu.appendChild(link);
+});
 
-</style>
-<!-- Menu nawigacyjne -->
-<nav class="navbar">
-    <a href="#" class="navbar-brand">Mateusz Kacpura</a>
-    <button class="navbar-toggler" onclick="toggleMenu()">&#9776;</button>
-    <div class="navbar-menu">
-        <a href="#about">O Mnie</a>
-        <a href="#experience">Doświadczenie</a>
-        <a href="#skills">Umiejętności</a>
-        <a href="#projects">Projekty</a>
-        <a href="#education">Edukacja</a>
-        <a href="#contact">Kontakt</a>
-    </div>
-</nav>
+nav.appendChild(navbarMenu);
+body.appendChild(nav);
 
-    <!-- Sidebar -->
-    <div class="d-flex" id="wrapper">
-        <!-- Sidebar -->
-        <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading text-center">
-                <img src="https://avatars.githubusercontent.com/u/126676591?v=4" alt="https://avatars.githubusercontent.com/u/126676591?s=96&v=4" class="img-fluid rounded-circle mt-4" width="150">
-                <h2 class="mt-3">Mateusz Kacpura</h2>
-                <h4 class="text-muted">programista, analityk danych, politolog</h4>
-            </div>
-            <div class="list-group list-group-flush">
-                <div class="p-3">
-                    <h5>O mnie</h5>
-                    <p>Programista specjalizujący się w technologiach webowych, z doświadczeniem w tworzeniu stron internetowych, zarządzaniu bazami danych i uczenia sieci neuronowych. Stale rozwija swoje umiejętności w zakresie programowania i analitycznego rozwiązywania problemów.</p>
-                </div>
-                <div class="p-3">
-                    <h5>Dane Personalne</h5>
-                    <ul class="list-unstyled">
-                        <li><strong>Imię i nazwisko:</strong> Mateusz Kacpura</li>
-                        <li><strong>Narodowość:</strong> Polska</li>
-                        <li><strong>Rok Urodzenia:</strong> 1997</li>
-                    </ul>
-                </div>
-                <div class="p-3">
-                    <h5>Obszar specjalizacji</h5>
-                    <p>Programowanie • Sieci Neuronowe • Administracja Systemami Linux</p>
-                </div>
-                <div class="p-3">
-                    <h5>Zainteresowania</h5>
-                    <p>IT • Filmowanie • Fotografia</p>
-                </div>
-                <div class="p-3">
-                    <h5>Technologie</h5>
-                    <p>Python • PHP • JavaScript • Docker • Git • Linux • MongoDB • PostgreSQL • Flask • TensorFlow • Scikit-learn • Keras • PyTorch • Dask  Pandas • PySpark • Laravel • Node.js • MATLAB • LaTeX</p>
-                </div>
-                <div class="p-3">
-                    <h5>Kontakt</h5>
-                    <p><i class="fas fa-phone"></i> +48 720 760 461</p>
-                    <p><i class="fab fa-facebook"></i> Mateusz Kacpura</p>
-                    <p><i class="fab fa-github"></i> <a href="https://github.com/mateusz-kacpura">github.com/mateusz-kacpura</a></p>
-                    <p><i class="fas fa-envelope"></i> mateusz.kacpura@protonmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Toruń, Polska</p>
-                </div>
-            </div>
-        </div>
-        <!-- /#sidebar-wrapper -->
+// Wrapper
+const wrapper = createElement('div', 'd-flex', { id: 'wrapper' });
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <!-- Doświadczenie zawodowe -->
-                <section id="experience" class="mt-4">
-                    <h2>Doświadczenie zawodowe</h2>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <h4>2020 - 2023</h4>
-                            <h3>Technik telewizyjny  <span class="text-muted"></span></h3>
-                            <p>Tworzenie programów publicystycznych "Geopolityka" i "Zrozumieć antycywilizację". Uczestniczyłem przy produkcji ok. 50 odcinków jako operator i montażysta. Zajmowałem się również weryfikacją i zbieraniem informacji.</p>
-                        </div>
-                        <div class="timeline-item">
-                            <h4>2018 - 2023</h4>
-                            <h3>Fotograf  <span class="text-muted"></span></h3>
-                            <p>Fotografowałem liczne wydarzenia organizowane przez Akademię Kultury Społecznej i Medialnej, Radio Maryja oraz Telewizję Trwam. Wyspecjalizowałem się w fotografii reportażowej.</p>
-                        </div>
-                    </div>
-                </section>
+// Sidebar
+const sidebarWrapper = createElement('div', 'bg-light border-right', { id: 'sidebar-wrapper' });
+const sidebarHeading = createElement('div', 'sidebar-heading text-center');
 
-                <!-- Umiejętności -->
-                <section id="skills" class="mt-5">
-                    <h2>Umiejętności</h2>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <h5>Bazy danych</h5>
-                            <ul class="list-unstyled">
-                                <li>MongoDB <div class="progress"><div class="progress-bar bg-success" style="width: 70%"></div></div></li>
-                                <li>MySQL <div class="progress"><div class="progress-bar bg-success" style="width: 60%"></div></div></li>
-                                <li>PostgreSQL <div class="progress"><div class="progress-bar bg-success" style="width: 50%"></div></div></li>
-                                <li>Parquet <div class="progress"><div class="progress-bar bg-success" style="width: 10%"></div></div></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Programowanie</h5>
-                            <ul class="list-unstyled">
-                                <li>Python <div class="progress"><div class="progress-bar bg-info" style="width: 70%"></div></div></li>
-                                <li>R <div class="progress"><div class="progress-bar bg-info" style="width: 30%"></div></div></li>
-                                <li>C <div class="progress"><div class="progress-bar bg-info" style="width: 10%"></div></div></li>
-                                <li>PHP <div class="progress"><div class="progress-bar bg-info" style="width: 60%"></div></div></li>
-                                <li>JavaScript <div class="progress"><div class="progress-bar bg-info" style="width: 60%"></div></div></li>
-                                <li>MATLAB <div class="progress"><div class="progress-bar bg-info" style="width: 10%"></div></div></li>
-                                <li>LaTeX <div class="progress"><div class="progress-bar bg-info" style="width: 10%"></div></div></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-4">
-                            <h5>Inne</h5>
-                            <ul class="list-unstyled">
-                                <li>Linux <div class="progress"><div class="progress-bar bg-warning" style="width: 90%"></div></div></li>
-                                <li>Git <div class="progress"><div class="progress-bar bg-warning" style="width: 90%"></div></div></li>
-                                <li>Docker <div class="progress"><div class="progress-bar bg-warning" style="width: 70%"></div></div></li>
-                                <li>Bash <div class="progress"><div class="progress-bar bg-warning" style="width: 60%"></div></div></li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
+// Dodajemy obrazek
+const img = createElement('img', 'img-fluid rounded-circle mt-4', {
+    src: 'https://avatars.githubusercontent.com/u/126676591?v=4',
+    alt: 'Avatar',
+    width: '150'
+});
+sidebarHeading.appendChild(img);
 
-                <!-- Projekty -->
-                <section id="projects" class="mt-5">
-                    <h2>Projekty</h2>
-                    <div class="project-item">
-                        <h4>2024 - Głębokie uczenie (Python, TensorFlow / Keras / PyTorch)</h4>
-                        <p>Rekonstrukcja obrazów CelebA, Fashion, CIFAR-10 przy pomocy konwolucyjnych sieci neuronowych. Zamiana tekstu na mowę.</p>
-                    </div>
-                    <div class="project-item">
-                        <h4>2023 - Strona internetowa influencerów Pro Movie Group (Python, Flask, JSON)</h4>
-                        <p>Projekt strony internetowej stworzony od zera w celu uruchomienia kodu na darmowym hostingu ct8 przez SSH.</p>
-                    </div>
-                    <div class="project-item">
-                        <h4>2023 - Aplikacja do nauki języka angielskiego (Python, JavaScript, Flask, JSON)</h4>
-                        <p>System logowania użytkowników, publiczne i prywatne zestawy do nauki, wiele zadań.</p>
-                    </div>
-                    <div class="project-item">
-                        <h4>2023 - Skrobak internetowy (Python, Selenium)</h4>
-                        <p>Skrypt, który z wykorzystaniem Selenium zbiera dane ze stron internetowych wymagających zalogowania.</p>
-                    </div>
-                    <div class="project-item">
-                        <h4>2020 - 2021 - Aplikacja do nauki angielskiego (PHP, JavaScript)</h4>
-                        <p>Fiszki językowe do nauki angielskiego.</p>
-                    </div>
-                </section>
+// Nagłówki
+const h2Name = document.createElement('h2');
+h2Name.classList.add('mt-3');
+h2Name.innerText = 'Mateusz Kacpura';
+sidebarHeading.appendChild(h2Name);
 
-                <!-- Edukacja i Osiągnięcia -->
-                <div class="row mt-5">
-                    <div class="col-md-6">
-                        <section id="education">
-                            <h2>Edukacja</h2>
-                            <ul class="list-unstyled">
-                                <li><strong>2024 - 2025:</strong> Magisterka z matematyki stosowanej, specjalizacja analiza danych</li>
-                                <li><strong>2021 - 2023:</strong> Magisterka z politologii</li>
-                                <li><strong>2018 - 2021:</strong> Licencjat z informatyki Medialnej</li>
-                            </ul>
-                        </section>
-                    </div>
-                    <div class="col-md-6">
-                        <section id="achievements">
-                            <h2>Osiągnięcia</h2>
-                            <ul class="list-unstyled">
-                                <li><strong>2015:</strong> Prawo jazdy kat. B</li>
-                            </ul>
-                        </section>
-                    </div>
-                </div>
+const h4Title = createElement('h4', 'text-muted');
+h4Title.innerText = 'programista, analityk danych, politolog';
+sidebarHeading.appendChild(h4Title);
 
-                <!-- Języki i Zainteresowania -->
-                <div class="row mt-5">
-                    <div class="col-md-6">
-                        <section id="languages">
-                            <h2>Języki</h2>
-                            <ul class="list-unstyled">
-                                <li><strong>Polski:</strong> C2 - Ojczysty</li>
-                                <li><strong>Angielski:</strong> B2 - Zaawansowany</li>
-                                <li><strong>Hiszpański:</strong> B1 - Średniozaawansowany</li>
-                            </ul>
-                        </section>
-                    </div>
-                    <div class="col-md-6">
-                        <section id="interests">
-                            <h2>Zainteresowania</h2>
-                            <ul class="list-unstyled">
-                                <li><strong>Majsterkowanie:</strong> Montaż komputerów</li>
-                                <li><strong>Cyberbezpieczeństwo:</strong> Metasploit, Hashcat</li>
-                                <li><strong>Sport:</strong> Wspinaczka sportowa i górska</li>
-                            </ul>
-                        </section>
-                    </div>
-                </div>
+sidebarWrapper.appendChild(sidebarHeading);
 
-                <!-- Stopka -->
-                <footer class="mt-5 text-center">
-                    <p class="text-muted">Mateusz Kacpura • mateusz.kacpura@protonmail.com • Toruń • +48 720 760 461</p>
-                </footer>
+// Lista w sidebarze
+const sidebarList = createElement('div', 'list-group list-group-flush');
 
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-    </div>
-    <!-- /#wrapper -->
+// Sekcje w sidebarze
+const sidebarSections = [
+    {
+        title: 'O mnie',
+        content: 'Programista specjalizujący się w technologiach webowych, z doświadczeniem w tworzeniu stron internetowych, zarządzaniu bazami danych i uczenia sieci neuronowych. Stale rozwija swoje umiejętności w zakresie programowania i analitycznego rozwiązywania problemów.'
+    },
+    {
+        title: 'Dane Personalne',
+        content: `
+            <ul class="list-unstyled">
+                <li><strong>Imię i nazwisko:</strong> Mateusz Kacpura</li>
+                <li><strong>Narodowość:</strong> Polska</li>
+                <li><strong>Rok Urodzenia:</strong> 1997</li>
+            </ul>
+        `
+    },
+    {
+        title: 'Obszar specjalizacji',
+        content: 'Programowanie • Sieci Neuronowe • Administracja Systemami Linux'
+    },
+    {
+        title: 'Zainteresowania',
+        content: 'IT • Filmowanie • Fotografia'
+    },
+    {
+        title: 'Technologie',
+        content: 'Python • PHP • JavaScript • Docker • Git • Linux • MongoDB • PostgreSQL • Flask • TensorFlow • Scikit-learn • Keras • PyTorch • Dask  Pandas • PySpark • Laravel • Node.js • MATLAB • LaTeX'
+    },
+    {
+        title: 'Kontakt',
+        content: `
+            <p><i class="fas fa-phone"></i> +48 720 760 461</p>
+            <p><i class="fab fa-facebook"></i> Mateusz Kacpura</p>
+            <p><i class="fab fa-github"></i> <a href="https://github.com/mateusz-kacpura">github.com/mateusz-kacpura</a></p>
+            <p><i class="fas fa-envelope"></i> mateusz.kacpura@protonmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Toruń, Polska</p>
+        `
+    }
+];
 
-    <!-- Bootstrap JS, jQuery, and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Custom JS -->
-    <script src="script.js"></script>
+sidebarSections.forEach(section => {
+    const div = createElement('div', 'p-3');
+    const h5 = document.createElement('h5');
+    h5.innerText = section.title;
+    div.appendChild(h5);
+    const content = document.createElement('div');
+    content.innerHTML = section.content;
+    div.appendChild(content);
+    sidebarList.appendChild(div);
+});
+
+sidebarWrapper.appendChild(sidebarList);
+wrapper.appendChild(sidebarWrapper);
+
+// Page Content
+const pageContentWrapper = createElement('div', null, { id: 'page-content-wrapper' });
+const containerFluid = createElement('div', 'container-fluid');
+
+// Sekcje główne
+// Doświadczenie zawodowe
+const sectionExperience = createElement('section', 'mt-4', { id: 'experience' });
+const h2Experience = document.createElement('h2');
+h2Experience.innerText = 'Doświadczenie zawodowe';
+sectionExperience.appendChild(h2Experience);
+
+const timeline = createElement('div', 'timeline');
+const experiences = [
+    {
+        date: '2020 - 2023',
+        title: 'Technik telewizyjny',
+        description: 'Tworzenie programów publicystycznych "Geopolityka" i "Zrozumieć antycywilizację". Uczestniczyłem przy produkcji ok. 50 odcinków jako operator i montażysta. Zajmowałem się również weryfikacją i zbieraniem informacji.'
+    },
+    {
+        date: '2018 - 2023',
+        title: 'Fotograf',
+        description: 'Fotografowałem liczne wydarzenia organizowane przez Akademię Kultury Społecznej i Medialnej, Radio Maryja oraz Telewizję Trwam. Wyspecjalizowałem się w fotografii reportażowej.'
+    }
+];
+
+experiences.forEach(exp => {
+    const timelineItem = createElement('div', 'timeline-item');
+    const h4Date = document.createElement('h4');
+    h4Date.innerText = exp.date;
+    timelineItem.appendChild(h4Date);
+    const h3Title = document.createElement('h3');
+    h3Title.innerText = exp.title;
+    timelineItem.appendChild(h3Title);
+    const pDesc = document.createElement('p');
+    pDesc.innerText = exp.description;
+    timelineItem.appendChild(pDesc);
+    timeline.appendChild(timelineItem);
+});
+
+sectionExperience.appendChild(timeline);
+containerFluid.appendChild(sectionExperience);
+
+// Umiejętności
+const sectionSkills = createElement('section', 'mt-5', { id: 'skills' });
+const h2Skills = document.createElement('h2');
+h2Skills.innerText = 'Umiejętności';
+sectionSkills.appendChild(h2Skills);
+
+const skillsRow = createElement('div', 'row');
+
+const skillsData = [
+    {
+        category: 'Bazy danych',
+        skills: [
+            { name: 'MongoDB', level: 70 },
+            { name: 'MySQL', level: 60 },
+            { name: 'PostgreSQL', level: 50 },
+            { name: 'Parquet', level: 10 }
+        ]
+    },
+    {
+        category: 'Programowanie',
+        skills: [
+            { name: 'Python', level: 70 },
+            { name: 'R', level: 30 },
+            { name: 'C', level: 10 },
+            { name: 'PHP', level: 60 },
+            { name: 'JavaScript', level: 60 },
+            { name: 'MATLAB', level: 10 },
+            { name: 'LaTeX', level: 10 }
+        ]
+    },
+    {
+        category: 'Inne',
+        skills: [
+            { name: 'Linux', level: 90 },
+            { name: 'Git', level: 90 },
+            { name: 'Docker', level: 70 },
+            { name: 'Bash', level: 60 }
+        ]
+    }
+];
+
+skillsData.forEach(category => {
+    const col = createElement('div', 'col-md-4');
+    const h5Category = document.createElement('h5');
+    h5Category.innerText = category.category;
+    col.appendChild(h5Category);
+    const ul = createElement('ul', 'list-unstyled');
+    category.skills.forEach(skill => {
+        const li = document.createElement('li');
+        li.innerText = skill.name;
+        const progressDiv = createElement('div', 'progress');
+        const progressBar = createElement('div', 'progress-bar', { style: `width: ${skill.level}%` });
+        progressBar.classList.add(skill.level >= 70 ? 'bg-success' : skill.level >= 50 ? 'bg-info' : 'bg-warning');
+        progressDiv.appendChild(progressBar);
+        li.appendChild(progressDiv);
+        ul.appendChild(li);
+    });
+    col.appendChild(ul);
+    skillsRow.appendChild(col);
+});
+
+sectionSkills.appendChild(skillsRow);
+containerFluid.appendChild(sectionSkills);
+
+// Projekty
+const sectionProjects = createElement('section', 'mt-5', { id: 'projects' });
+const h2Projects = document.createElement('h2');
+h2Projects.innerText = 'Projekty';
+sectionProjects.appendChild(h2Projects);
+
+const projects = [
+    {
+        date: '2024',
+        title: 'Głębokie uczenie (Python, TensorFlow / Keras / PyTorch)',
+        description: 'Rekonstrukcja obrazów CelebA, Fashion, CIFAR-10 przy pomocy konwolucyjnych sieci neuronowych. Zamiana tekstu na mowę.'
+    },
+    {
+        date: '2023',
+        title: 'Strona internetowa influencerów Pro Movie Group (Python, Flask, JSON)',
+        description: 'Projekt strony internetowej stworzony od zera w celu uruchomienia kodu na darmowym hostingu ct8 przez SSH.'
+    },
+    {
+        date: '2023',
+        title: 'Aplikacja do nauki języka angielskiego (Python, JavaScript, Flask, JSON)',
+        description: 'System logowania użytkowników, publiczne i prywatne zestawy do nauki, wiele zadań.'
+    },
+    {
+        date: '2023',
+        title: 'Skrobak internetowy (Python, Selenium)',
+        description: 'Skrypt, który z wykorzystaniem Selenium zbiera dane ze stron internetowych wymagających zalogowania.'
+    },
+    {
+        date: '2020 - 2021',
+        title: 'Aplikacja do nauki angielskiego (PHP, JavaScript)',
+        description: 'Fiszki językowe do nauki angielskiego.'
+    }
+];
+
+projects.forEach(proj => {
+    const projectItem = createElement('div', 'project-item');
+    const h4Proj = document.createElement('h4');
+    h4Proj.innerText = `${proj.date} - ${proj.title}`;
+    projectItem.appendChild(h4Proj);
+    const pProj = document.createElement('p');
+    pProj.innerText = proj.description;
+    projectItem.appendChild(pProj);
+    sectionProjects.appendChild(projectItem);
+});
+
+containerFluid.appendChild(sectionProjects);
+
+// Edukacja i Osiągnięcia
+const rowEducationAchievements = createElement('div', 'row mt-5');
+
+// Edukacja
+const colEducation = createElement('div', 'col-md-6');
+const sectionEducation = createElement('section', null, { id: 'education' });
+const h2Education = document.createElement('h2');
+h2Education.innerText = 'Edukacja';
+sectionEducation.appendChild(h2Education);
+const ulEducation = createElement('ul', 'list-unstyled');
+const educationList = [
+    '<strong>2024 - 2025:</strong> Magisterka z matematyki stosowanej, specjalizacja analiza danych',
+    '<strong>2021 - 2023:</strong> Magisterka z politologii',
+    '<strong>2018 - 2021:</strong> Licencjat z informatyki Medialnej'
+];
+educationList.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = item;
+    ulEducation.appendChild(li);
+});
+sectionEducation.appendChild(ulEducation);
+colEducation.appendChild(sectionEducation);
+rowEducationAchievements.appendChild(colEducation);
+
+// Osiągnięcia
+const colAchievements = createElement('div', 'col-md-6');
+const sectionAchievements = createElement('section', null, { id: 'achievements' });
+const h2Achievements = document.createElement('h2');
+h2Achievements.innerText = 'Osiągnięcia';
+sectionAchievements.appendChild(h2Achievements);
+const ulAchievements = createElement('ul', 'list-unstyled');
+const achievementsList = [
+    '<strong>2015:</strong> Prawo jazdy kat. B'
+];
+achievementsList.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = item;
+    ulAchievements.appendChild(li);
+});
+sectionAchievements.appendChild(ulAchievements);
+colAchievements.appendChild(sectionAchievements);
+rowEducationAchievements.appendChild(colAchievements);
+
+containerFluid.appendChild(rowEducationAchievements);
+
+// Języki i Zainteresowania
+const rowLanguagesInterests = createElement('div', 'row mt-5');
+
+// Języki
+const colLanguages = createElement('div', 'col-md-6');
+const sectionLanguages = createElement('section', null, { id: 'languages' });
+const h2Languages = document.createElement('h2');
+h2Languages.innerText = 'Języki';
+sectionLanguages.appendChild(h2Languages);
+const ulLanguages = createElement('ul', 'list-unstyled');
+const languagesList = [
+    '<strong>Polski:</strong> C2 - Ojczysty',
+    '<strong>Angielski:</strong> B2 - Zaawansowany',
+    '<strong>Hiszpański:</strong> B1 - Średniozaawansowany'
+];
+languagesList.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = item;
+    ulLanguages.appendChild(li);
+});
+sectionLanguages.appendChild(ulLanguages);
+colLanguages.appendChild(sectionLanguages);
+rowLanguagesInterests.appendChild(colLanguages);
+
+// Zainteresowania
+const colInterests = createElement('div', 'col-md-6');
+const sectionInterests = createElement('section', null, { id: 'interests' });
+const h2Interests = document.createElement('h2');
+h2Interests.innerText = 'Zainteresowania';
+sectionInterests.appendChild(h2Interests);
+const ulInterests = createElement('ul', 'list-unstyled');
+const interestsList = [
+    '<strong>Majsterkowanie:</strong> Montaż komputerów',
+    '<strong>Cyberbezpieczeństwo:</strong> Metasploit, Hashcat',
+    '<strong>Sport:</strong> Wspinaczka sportowa i górska'
+];
+interestsList.forEach(item => {
+    const li = document.createElement('li');
+    li.innerHTML = item;
+    ulInterests.appendChild(li);
+});
+sectionInterests.appendChild(ulInterests);
+colInterests.appendChild(sectionInterests);
+rowLanguagesInterests.appendChild(colInterests);
+
+containerFluid.appendChild(rowLanguagesInterests);
+
+// Stopka
+const footer = createElement('footer', 'mt-5 text-center');
+const pFooter = document.createElement('p');
+pFooter.classList.add('text-muted');
+pFooter.innerText = 'Mateusz Kacpura • mateusz.kacpura@protonmail.com • Toruń • +48 720 760 461';
+footer.appendChild(pFooter);
+containerFluid.appendChild(footer);
+
+pageContentWrapper.appendChild(containerFluid);
+wrapper.appendChild(pageContentWrapper);
+
+// Dodajemy wrapper do body
+body.appendChild(wrapper);
+
+// Zastępujemy obecne body nowym
+document.body.parentNode.replaceChild(body, document.body);
+
+/* Opcjonalnie - funkcja toggleMenu (jeśli potrzebna) */
+function toggleMenu() {
+    const menu = document.querySelector('.navbar-menu');
+    menu.classList.toggle('active');
+}
+    </script>
 </body>
 </html>
