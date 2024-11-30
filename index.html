@@ -170,7 +170,6 @@
   <!-- Wrapper -->
   <div id="wrapper">
     <!-- Sidebar -->
-    <!-- Sidebar -->
 <div id="sidebar-wrapper" class="bg-body-secondary border-right">
   <div class="sidebar-heading text-center">
     <img src="https://avatars.githubusercontent.com/u/126676591?v=4" alt="Avatar" class="img-fluid rounded-circle mt-4" width="150">
@@ -444,7 +443,7 @@
 
       containerFluid.appendChild(sectionProjects);
 
-      // Edukacja i Osiągnięcia
+      // Edukacja i osiągnięcia
       const rowEducationAchievements = createElement('div', 'row mt-5');
 
       // Edukacja
@@ -489,7 +488,7 @@
 
       containerFluid.appendChild(rowEducationAchievements);
 
-      // Języki i Zainteresowania
+      // Języki i zainteresowania
       const rowLanguagesInterests = createElement('div', 'row mt-5');
 
       // Języki
@@ -567,7 +566,7 @@
         event.preventDefault();
         mainContent.innerHTML = '';
 
-        // Stwórz i dodaj sekcję przeglądarki PDF
+        // Tworzenie i dodawanie sekcji przeglądarki PDF
         const pdfViewerSection = document.createElement('div');
         pdfViewerSection.id = 'pdfViewerSection';
         
@@ -607,7 +606,6 @@
       'Optymalizacja implementacji filtru Blooma.pdf',
       'PDF rekonstrukcja obrazów VAE.pdf',
       'Próbkowanie sygnałów ls2.pdf'
-        // Dodaj więcej URL-ów według potrzeb
       ];
 
       const pdfThumbnailsContainer = document.getElementById('pdfThumbnails');
@@ -624,7 +622,7 @@
       // Inicjalizacja PDF.js worker
       pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
 
-      // Funkcja do generowania miniaturki
+      // Funkcja generująca miniaturki
       async function generateThumbnail(url) {
         const loadingTask = pdfjsLib.getDocument(url);
         const pdf = await loadingTask.promise;
@@ -636,7 +634,7 @@
         canvas.width = viewport.width;
         await page.render({ canvasContext: context, viewport: viewport }).promise;
 
-        // Tworzenie elementu HTML dla miniaturki
+        // Tworze elementy HTML dla miniaturki
         const col = document.createElement('div');
         col.className = 'col-md-4 mb-4';
         const img = document.createElement('img');
@@ -659,9 +657,9 @@
       async function openPdfModal(url) {
         currentPdf = await pdfjsLib.getDocument(url).promise;
         totalPageCount = currentPdf.numPages;
-        // Czyścimy zawartość poprzednich stron
+        // Czyszcze zawartość poprzednich stron
         pdfViewer.innerHTML = '';
-        scale = 1.0; // Resetujemy poziom zoomu
+        scale = 1.0; // Resetuje poziom zoomu
         document.getElementById('zoomLevel').innerText = Math.round(scale * 100) + '%';
         for (let pageNum = 1; pageNum <= totalPageCount; pageNum++) {
           await renderPdfPage(pageNum);
@@ -679,7 +677,6 @@
         canvas.height = viewport.height;
         canvas.width = viewport.width;
         await page.render({ canvasContext: context, viewport: viewport }).promise;
-        // Dodajemy canvas do pdfViewer
         pdfViewer.appendChild(canvas);
       }
 
